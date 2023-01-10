@@ -24,7 +24,7 @@ app.MapGet("/info", async (context) =>
 {
     InfoMessage infoStatus = new InfoMessage("GET /status", "Информация о сервере, номер порта");
     InfoMessage infoConversion = new InfoMessage("POST /conversion", "Конвертация мер веса");
-    InfoMessages infoMessage = new InfoMessages(new List<InfoMessage> { infoStatus, infoConversion });
+    InfoMessages infoMessage = new InfoMessages(new List<InfoMessage> { infoStatus, infoConversion }, $"API format: \"name\": \"Gram\", \"value\": \"1\"  ||  Доступные для конвертации меры веса \"name\": Gram - Грамм, Kilogram - Килограмм, Stone - Стоун, Pound - Фунт, Ounce - Унция, Dram - Драм, Grain - Гран");
 
     await context.Response.WriteAsJsonAsync(infoMessage);
 });
